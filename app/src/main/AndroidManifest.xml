@@ -72,7 +72,7 @@
             android:exported="true"
             android:hardwareAccelerated="true"
             android:icon="@drawable/filter"
-            android:label="屏幕滤镜"
+            android:label="@string/filter_qstile_name"
             android:launchMode="singleTask"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
@@ -85,7 +85,7 @@
             android:exported="true"
             android:hardwareAccelerated="true"
             android:icon="@drawable/intelligent_brightness"
-            android:label="智能亮度"
+            android:label="@string/intelligent_brightness_qstile_name"
             android:launchMode="singleTask"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
@@ -98,7 +98,7 @@
             android:exported="true"
             android:hardwareAccelerated="true"
             android:icon="@drawable/screenshot"
-            android:label="正常截屏"
+            android:label="@string/screenshot_qstile_name"
             android:launchMode="singleTask"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>

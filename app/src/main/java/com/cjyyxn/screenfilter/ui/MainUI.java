@@ -2,6 +2,7 @@ package com.cjyyxn.screenfilter.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.LinearLayout;
@@ -39,19 +40,20 @@ public class MainUI {
     }
 
     private void setUI() {
+        Resources res = mainActivity.getResources();
 
         combinationControl.addSwitchControl(
-                "屏幕滤镜开关",
+                res.getString(R.string.filter_switch),
                 (buttonView, isChecked) -> AppConfig.setFilterOpenMode(isChecked),
                 (sw) -> sw.setChecked(AppConfig.isFilterOpenMode())
         );
         combinationControl.addSwitchControl(
-                "智能亮度开关",
+                res.getString(R.string.intelligent_brightness_switch),
                 (buttonView, isChecked) -> AppConfig.setIntelligentBrightnessOpenMode(isChecked),
                 (sw) -> sw.setChecked(AppConfig.isIntelligentBrightnessOpenMode())
         );
         combinationControl.addSwitchControl(
-                "在多任务界面隐藏",
+                res.getString(R.string.hide_in_recents_switch),
                 (buttonView, isChecked) -> AppConfig.setHideInMultitaskingInterface(isChecked),
                 (sw) -> sw.setChecked(AppConfig.isHideInMultitaskingInterface())
         );
@@ -63,7 +65,7 @@ public class MainUI {
          * 应与系统状态栏亮度同步
          */
         combinationControl.addSeekBarControl(
-                "屏幕亮度设置", 1, AppConfig.SETTING_SCREEN_BRIGHTNESS,
+                res.getString(R.string.screen_brightness_settings), 1, AppConfig.SETTING_SCREEN_BRIGHTNESS,
                 (P) -> String.format("%.0f %%", GlobalStatus.getSystemBrightness() * 100),
                 (sb, P, fromUser) -> {
                     if (fromUser) {
@@ -76,7 +78,7 @@ public class MainUI {
                 (sb) -> sb.setProgress(GlobalStatus.getSystemBrightnessProgress())
         );
         combinationControl.addSeekBarControl(
-                "亮光模式阈值", 1, 100,
+                res.getString(R.string.bright_mode_threshold), 1, 100,
                 (P) -> String.format("%.0f lux", AppConfig.getHighLightThreshold()),
                 (sb, P, fromUser) -> {
                     if (fromUser) {
@@ -88,7 +90,7 @@ public class MainUI {
                 (sb) -> sb.setProgress((int) (AppConfig.getHighLightThreshold() / 100f + 0.5))
         );
         combinationControl.addSeekBarControl(
-                "暗光模式阈值", 0, 20,
+                res.getString(R.string.dark_mode_threshold), 0, 20,
                 (P) -> String.format("%.0f lux", AppConfig.getLowLightThreshold()),
                 (sb, P, fromUser) -> {
                     if (fromUser) {
@@ -100,7 +102,7 @@ public class MainUI {
                 (sb) -> sb.setProgress((int) (AppConfig.getLowLightThreshold() + 0.5f))
         );
         combinationControl.addSeekBarControl(
-                "最低硬件亮度", 0, 100,
+                res.getString(R.string.min_hardware_brightness), 0, 100,
                 (P) -> String.format("%.0f %%", AppConfig.getMinHardwareBrightness() * 100),
                 (sb, P, fromUser) -> {
                     if (fromUser) {
@@ -112,7 +114,7 @@ public class MainUI {
                 (sb) -> sb.setProgress((int) (AppConfig.getMinHardwareBrightness() * 100 + 0.5f))
         );
         combinationControl.addSeekBarControl(
-                "最高滤镜\n不透明度", 60, 100,
+                res.getString(R.string.max_filter_opacity), 60, 100,
                 (P) -> String.format("%.0f %%", AppConfig.getMaxFilterOpacity() * 100),
                 (sb, P, fromUser) -> {
                     if (fromUser) {
@@ -124,7 +126,7 @@ public class MainUI {
                 (sb) -> sb.setProgress((int) (AppConfig.getMaxFilterOpacity() * 100f + 0.5f))
         );
         combinationControl.addSeekBarControl(
-                "亮度调高容差", 0, 30,
+                res.getString(R.string.brightness_increase_tolerance), 0, 30,
                 (P) -> String.format("%.2f", AppConfig.getBrightnessAdjustmentIncreaseTolerance()),
                 (sb, P, fromUser) -> {
                     if (fromUser) {
@@ -136,7 +138,7 @@ public class MainUI {
                 (sb) -> sb.setProgress((int) (AppConfig.getBrightnessAdjustmentIncreaseTolerance() * 100f + 0.5f))
         );
         combinationControl.addSeekBarControl(
-                "亮度调低容差", 0, 50,
+                res.getString(R.string.brightness_decrease_tolerance), 0, 50,
                 (P) -> String.format("%.2f", AppConfig.getBrightnessAdjustmentDecreaseTolerance()),
                 (sb, P, fromUser) -> {
                     if (fromUser) {
@@ -151,28 +153,28 @@ public class MainUI {
         combinationControl.addLine();
 
         combinationControl.addJumpLabel(
-                "打开准备界面",
+                res.getString(R.string.enter_setup),
                 () -> mainActivity.startActivity(new Intent(mainActivity, PreparatoryActivity.class))
         );
         combinationControl.addJumpLabel(
-                "打开使用说明",
+                res.getString(R.string.enter_readme),
                 () -> mainActivity.startActivity(new Intent(mainActivity, ReadmeActivity.class))
         );
         combinationControl.addJumpLabel(
-                "打开亮度-光照曲线设置界面",
+                res.getString(R.string.enter_brightness_curve_settings),
                 () -> mainActivity.startActivity(new Intent(mainActivity, BrightnessPointActivity.class))
         );
         combinationControl.addJumpLabel(
-                "加载默认配置",
+                res.getString(R.string.load_default_config),
                 () -> {
                     AppConfig.loadDefaultConfig();
                     new Handler(Looper.getMainLooper()).post(() -> {
-                        Toast.makeText(mainActivity, "默认配置加载成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mainActivity, res.getString(R.string.default_config_loaded_toast), Toast.LENGTH_SHORT).show();
                     });
                 }
         );
         combinationControl.addJumpLabel(
-                "打开调试界面",
+                res.getString(R.string.enter_debug),
                 () -> mainActivity.startActivity(new Intent(mainActivity, DebugActivity.class))
         );
 
@@ -185,8 +187,8 @@ public class MainUI {
             new Handler(Looper.getMainLooper()).post(() -> {
                 // 在UI线程中更新UI组件
 //                        Log.d("ccjy", "更新 mainUI");
-                tv_main_light.setText(String.format("当前环境光照: %.1f lux", GlobalStatus.light));
-                tv_main_brightness.setText(String.format("当前屏幕亮度: %.1f %%", GlobalStatus.getBrightness() * 100));
+                tv_main_light.setText(String.format("%s: %.1f lux", mainActivity.getResources().getString(R.string.current_environment_light), GlobalStatus.light));
+                tv_main_brightness.setText(String.format("%s: %.1f %%", mainActivity.getResources().getString(R.string.current_screen_brightness), GlobalStatus.getBrightness() * 100));
 
             });
         });

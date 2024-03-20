@@ -1,4 +1,25 @@
 <resources>
-    <string name="app_name">滤镜护眼防频闪</string>
-    <string name="accessibility_description">通过辅助服务，提高滤镜显示层级，以便能够覆盖状态栏、导航栏、锁屏界面。</string>
+    <string name="app_name">Anti-flicker Screen Filter</string>
+    <string name="accessibility_description">Show filter at a high layer through accessibility service to cover status bar, navigation bar and lock screen.</string>
+    <string name="filter_qstile_name">Screen Filter</string>
+    <string name="intelligent_brightness_qstile_name">Auto Brightness</string>
+    <string name="screenshot_qstile_name">Screenshot (Filterless)</string>
+    <string name="filter_switch">Screen Filter</string>
+    <string name="intelligent_brightness_switch">Intelligent brightness</string>
+    <string name="hide_in_recents_switch">Hide in recents</string>
+    <string name="screen_brightness_settings">Screen brightness</string>
+    <string name="bright_mode_threshold">Bright mode threshold</string>
+    <string name="dark_mode_threshold">Dark mode threshold</string>
+    <string name="min_hardware_brightness">Minimum hardware brightness</string>
+    <string name="max_filter_opacity">Maximum filter opacity</string>
+    <string name="brightness_increase_tolerance">Brightness increase tolerance</string>
+    <string name="brightness_decrease_tolerance">Brightness decrease telerance</string>
+    <string name="current_environment_light">Environment light</string>
+    <string name="current_screen_brightness">Screen brightness</string>
+    <string name="enter_setup">Setup</string>
+    <string name="enter_readme">Readme</string>
+    <string name="enter_brightness_curve_settings">Brightness curve settings</string>
+    <string name="load_default_config">Load default config</string>
+    <string name="default_config_loaded_toast">Default config loaded successfully</string>
+    <string name="enter_debug">Debug</string>
 </resources>

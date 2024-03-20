@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">滤镜护眼防频闪</string>
+    <string name="accessibility_description">通过辅助服务，提高滤镜显示层级，以便能够覆盖状态栏、导航栏、锁屏界面。</string>
+    <string name="filter_qstile_name">屏幕滤镜</string>
+    <string name="intelligent_brightness_qstile_name">智能亮度</string>
+    <string name="screenshot_qstile_name">正常截屏</string>
+    <string name="filter_switch">屏幕滤镜开关</string>
+    <string name="intelligent_brightness_switch">智能亮度开关</string>
+    <string name="hide_in_recents_switch">在多任务界面隐藏</string>
+    <string name="screen_brightness_settings">屏幕亮度设置</string>
+    <string name="bright_mode_threshold">亮光模式阈值</string>
+    <string name="dark_mode_threshold">暗光模式阈值</string>
+    <string name="min_hardware_brightness">最低硬件亮度</string>
+    <string name="max_filter_opacity">最高滤镜\n不透明度</string>
+    <string name="brightness_increase_tolerance">亮度调高容差</string>
+    <string name="brightness_decrease_tolerance">亮度调低容差</string>
+    <string name="current_environment_light">当前环境光照</string>
+    <string name="current_screen_brightness">当前屏幕亮度</string>
+    <string name="enter_setup">打开准备界面</string>
+    <string name="enter_readme">打开使用说明</string>
+    <string name="enter_brightness_curve_settings">打开亮度-光照曲线设置界面</string>
+    <string name="load_default_config">加载默认配置</string>
+    <string name="default_config_loaded_toast">默认配置加载成功</string>
+    <string name="enter_debug">打开调试界面</string>
+</resources>
